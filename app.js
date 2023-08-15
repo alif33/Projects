@@ -6,6 +6,9 @@ const selectMic = document.getElementById("selectMic")
 
 
 let mediaStream;
+let mute = false;
+let camera = true;
+
 async function getMedia() {
     try{
         mediaStream = await window.navigator.mediaDevices.getUserMedia({
@@ -28,3 +31,24 @@ function displayMedia(){
         video.play()
     })
 }
+
+muteBtn.addEventListener('click', (e)=>{
+    if (mute) {
+        muteBtn.textContent = "Mute"
+        mute = false
+        mediaStream.getAudioTracks()
+        .forEach(track => {
+            console.log(track)
+            track.enabled = true
+        })
+    }else{
+        muteBtn.textContent = "Unmute"
+        mute = true
+        mediaStream.getAudioTracks()
+            .forEach(track => {
+                console.log(track)
+                track.enabled = false
+            })
+        console.log(mediaStream.getAudioTracks())
+    }
+})
