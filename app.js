@@ -7,7 +7,7 @@ const selectMic = document.getElementById("selectMic")
 
 let mediaStream;
 let mute = false;
-let camera = true;
+let camera = false;
 
 async function getMedia() {
     try{
@@ -38,7 +38,6 @@ muteBtn.addEventListener('click', (e)=>{
         mute = false
         mediaStream.getAudioTracks()
         .forEach(track => {
-            console.log(track)
             track.enabled = true
         })
     }else{
@@ -46,9 +45,29 @@ muteBtn.addEventListener('click', (e)=>{
         mute = true
         mediaStream.getAudioTracks()
             .forEach(track => {
-                console.log(track)
                 track.enabled = false
             })
         console.log(mediaStream.getAudioTracks())
     }
+})
+
+
+cameraoff.addEventListener("click", function(e){
+    if(camera){
+        cameraoff.textContent = "Turn off camera"
+        camera = false
+        mediaStream.getVideoTracks()
+        .forEach(track => {
+            track.enabled = true
+        })
+
+    }else{
+        cameraoff.textContent = "Turn on camera"
+        camera = true
+        mediaStream.getVideoTracks()
+        .forEach(track => {
+            track.enabled = false
+        })
+    }
+
 })
