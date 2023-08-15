@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="text-center">
+        <video autoplay height="300" width="400" id="video" muted></video>
+    </div>
+    <div class= "text-center">
+        <button id="muteBtn" class= "btn btn-primary" >Mute</button>
+        <button id= "cameraoff" class="btn btn-primary">Turn off camera</button>
+       <select
+            id="selectCam"
+            style= "width: 300рx; margin: auto"
+            class="form-select mt-5"
+            aria-label="Default select example"
+        >
+            <option disabled selected>Select Camera</option>
+            <option value= "1">One</option>
+            <option value= "2">Two</option>
+            <option value= ***>Three</option>
+        </select>
+        <select
+            id="selectMic"
+            style= "width: 300рх; margin: auto"
+            class="form-select mt-5"
+        >
+            <option>One</option>
+            <option>Two</option>
+            <option>Three</option>
+        </select>
+    </div>
+    <script src="/app.js"></script>
+</body>
+</html>
